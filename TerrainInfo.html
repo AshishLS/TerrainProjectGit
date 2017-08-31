@@ -1,0 +1,99 @@
+<html>
+<head>
+<script src="https://www.google.com/jsapi" ></script>
+<script src="terrain.js" ></script>  
+
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r76/three.min.js"></script>
+<script src="http://threejs.org/examples/js/controls/OrbitControls.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<title>My Terrain</title>
+
+<style type="text/css">
+#map {
+        width: 500px;
+        height: 500px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+#floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 10%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 2px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','courier';
+        line-height: 30px;
+      }
+      #floating-panel {
+        background-color: #fff;
+        border: 1px solid #999;
+        top: 10px;
+      }
+
+    #canvasID {
+      position: absolute;
+      top: 40px;
+      left: 0%;
+      pointer-events: none;
+      z-index: 5;
+      width: 500px;
+      height: 460;
+      background-color: "AA00CD";
+      border: 4px solid #999;
+   }
+
+    #error_message2 {
+      background-color: "AA00CD";
+   }
+
+     #locationForm {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 2px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','courier';
+        line-height: 30px;
+   }
+   
+   
+</style>
+</head>
+<body>
+<div id="map"></div>      
+      <div id="floating-panel" >
+        <button onclick="selectArea()">Select Area</button>
+        <button onclick="getTerrain()">Get Terrain Values</button>
+        <button id="btnShow3D" disabled="true" onclick="show3D()">Show 3D</button>
+      </div>
+      <div id="error_message"> </div>
+      <div id="elevation_chart" ></div>
+      <div id="error_message2" > </div>
+      <canvas id="canvasID"> </canvas>
+
+      <div id="locationForm">
+      Lat: <input type="textbox" id="latitude" value="27.987789"><br>
+      Lng: <input type="textbox" id="longitude" value="86.925056"><br>
+           <input id="btnGoToLocation" type="button" value="Go To Location"><br>
+        or<br>
+      Address: <input type="textbox" id="address" value="Mount Everest"><br>
+            <input id="btnGoToAddress" type="button" value="Go To Address"><br>
+      Matrix Count: <input type="textbox" id="matrixCount" value="30"><br>
+      </div>
+</body>
+</html>
+
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASdDmNBvjMHNFWJO8YuKOFnsWI4_HqHWY&callback=initMap" >
+</script>
